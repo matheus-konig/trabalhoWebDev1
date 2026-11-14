@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+:root {
+  --verde-900: #0f3d2e;
+  --verde-600: #1f7a52;
+  --verde-200: #bfe8d2;
+  --verde-100: #e3f5ec;
+  --verde-50:  #f2fbf6;
+  --cinza-nav: #303a2f;
+  --marca:     #26b821;
+  --perigo:    #c0392b;
+
+  --raio: 14px;
+  --fonte: 'Nunito', sans-serif;
+}
+
+[hidden] { display: none !important; }
+
+body {
+  background: var(--verde-900);
+  color: var(--verde-50);
+  font-family: var(--fonte);
+}
+
+h1, h2, p { color: var(--verde-50); font-weight: 800; }
+h1 { margin-bottom: 1.5rem; }
+a { color: var(--verde-200); }
+a:hover { color: #fff; }
+
+.navbar-verde { background: var(--cinza-nav); }
+.navbar-verde .navbar-brand { color: var(--marca); font-weight: 800; }
+.navbar-verde .nav-link { color: var(--verde-200); }
+.navbar-verde .nav-link:hover { color: #fff; }
+.navbar-verde .nav-link.active { background: var(--verde-600); color: #fff; }
+
+.btn-verde, .btn-cinza, .btn-perigo {
+  border-radius: var(--raio);
+  font-weight: 600;
+  padding: .5rem 1.2rem;
+}
+.btn-verde { background: var(--verde-600); color: #fff; border: 0; }
+.btn-verde:hover { background: var(--verde-900); color: #fff; }
+.btn-cinza { background: var(--verde-200); color: #3b443b; border: 0; }
+.btn-cinza:hover { background: var(--verde-100); color: #3b443b; }
+.btn-perigo { background: transparent; color: var(--perigo); border: 2px solid var(--perigo); }
+.btn-perigo:hover { background: var(--perigo); color: #fff; }
+.btn-sm { padding: .25rem .8rem; font-size: .875rem; }
+
+.alert-erro, .alert-sucesso {
+  border-radius: var(--raio);
+  padding: .75rem 1rem;
+  font-weight: 600;
+}
+.alert-erro { background: #fdecea; color: var(--perigo); border: 2px solid var(--perigo); }
+.alert-sucesso { background: var(--verde-100); color: var(--verde-900); border: 2px solid var(--verde-600); }
