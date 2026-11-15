@@ -1,4 +1,4 @@
-// storage.js (base retroativa para Início, Novo e Hábitos)
+
 const categorias = [
   { id: 1, nome: 'Saúde' },
   { id: 2, nome: 'Estudo' },
