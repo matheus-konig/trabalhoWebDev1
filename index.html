@@ -1,201 +1,211 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Self-Care</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav class="navbar sm:navbar-expand bg-1 fg-2 navbar-verde">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#inicio">Self-Care</a>
-    <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Abrir menu">
-      <span class="navbar-toggler-icon" aria-hidden="true"></span>
-    </button>
-    <dialog class="drawer drawer-end" tabindex="-1" id="navbarNavAltMarkup" aria-labelledby="navbarNavAltMarkupLabel">
-      <div class="drawer-header">
-        <h5 class="drawer-title" id="navbarNavAltMarkupLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Fechar"></button>
+  <nav class="navbar sm:navbar-expand bg-1 fg-2 navbar-verde">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#inicio">Self-Care</a>
+      <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon" aria-hidden="true"></span>
+      </button>
+      <dialog class="drawer drawer-end" tabindex="-1" id="navbarNavAltMarkup" aria-labelledby="navbarNavAltMarkupLabel">
+        <div class="drawer-header">
+          <h5 class="drawer-title" id="navbarNavAltMarkupLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Fechar"></button>
+        </div>
+        <div class="drawer-body">
+          <div class="nav nav-pills navbar-nav">
+            <a class="nav-link" href="#inicio" data-pagina="inicio">Início</a>
+            <a class="nav-link" href="#habitos" data-pagina="habitos">Hábitos</a>
+            <a class="nav-link" href="#progresso" data-pagina="progresso">Progresso</a>
+            <a class="nav-link" href="#novo" data-pagina="novo">Adicionar novo hábito</a>
+            <a class="nav-link" href="#perfil" data-pagina="perfil">Perfil</a>
+          </div>
+        </div>
+      </dialog>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="alert alert-sucesso mb-3" id="mensagem" role="status" hidden></div>
+
+    <section class="pagina" id="pagina-inicio" hidden>
+      <p id="ola" hidden></p>
+      <h1>Hoje</h1>
+      <p id="resumo"></p>
+      <div id="listaHoje"></div>
+
+      <h2>Progresso</h2>
+      <div class="progress mb-3" role="progressbar" aria-label="Hábitos concluídos hoje" aria-valuenow="0"
+        aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" id="barra" style="width: 0%"></div>
       </div>
-      <div class="drawer-body">
-        <div class="nav nav-pills navbar-nav">
-          <a class="nav-link" href="#inicio" data-pagina="inicio">Início</a>
-          <a class="nav-link" href="#habitos" data-pagina="habitos">Hábitos</a>
-          <a class="nav-link" href="#progresso" data-pagina="progresso">Progresso</a>
-          <a class="nav-link" href="#novo" data-pagina="novo">Adicionar novo hábito</a>
-          <a class="nav-link" href="#perfil" data-pagina="perfil">Perfil</a>
+    </section>
+
+    <section class="pagina" id="pagina-habitos" hidden>
+      <h1>Hábitos</h1>
+      <div class="row g-2 mb-3">
+        <div class="col-md-6">
+          <label for="busca" class="form-label">Buscar</label>
+          <input type="search" id="busca" class="form-control" placeholder="Nome do hábito...">
+        </div>
+        <div class="col-6 col-md-3">
+          <label for="filtroCategoria" class="form-label">Categoria</label>
+          <select id="filtroCategoria" class="form-control"></select>
+        </div>
+        <div class="col-6 col-md-3">
+          <label for="filtroStatus" class="form-label">Hoje</label>
+          <select id="filtroStatus" class="form-control">
+            <option value="">Todos</option>
+            <option value="feito">Feitos hoje</option>
+            <option value="pendente">Pendentes</option>
+          </select>
         </div>
       </div>
-    </dialog>
-  </div>
-</nav>
 
-<main class="container py-4">
-  <div class="alert alert-sucesso mb-3" id="mensagem" role="status" hidden></div>
-  
-  <section class="pagina" id="pagina-inicio" hidden>
-    <p id="ola" hidden></p>
-    <h1>Hoje</h1>
-    <p id="resumo"></p>
-    <div id="listaHoje"></div>
-
-    <h2>Progresso</h2>
-    <div class="progress mb-3" role="progressbar" aria-label="Hábitos concluídos hoje"
-         aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-      <div class="progress-bar" id="barra" style="width: 0%"></div>
-    </div>
-  </section>
-
-  <section class="pagina" id="pagina-habitos" hidden>
-    <h1>Hábitos</h1>
-    <div class="row g-2 mb-3">
-      <div class="col-md-6">
-        <label for="busca" class="form-label">Buscar</label>
-        <input type="search" id="busca" class="form-control" placeholder="Nome do hábito...">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <small id="contador"></small>
+        <button type="button" id="limparFiltros" class="btn btn-cinza btn-sm">Limpar filtros</button>
       </div>
-      <div class="col-6 col-md-3">
-        <label for="filtroCategoria" class="form-label">Categoria</label>
-        <select id="filtroCategoria" class="form-control"></select>
-      </div>
-      <div class="col-6 col-md-3">
-        <label for="filtroStatus" class="form-label">Hoje</label>
-        <select id="filtroStatus" class="form-control">
-          <option value="">Todos</option>
-          <option value="feito">Feitos hoje</option>
-          <option value="pendente">Pendentes</option>
-        </select>
-      </div>
-    </div>
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <small id="contador"></small>
-      <button type="button" id="limparFiltros" class="btn btn-cinza btn-sm">Limpar filtros</button>
-    </div>
+      <div id="listaHabitos"></div>
+    </section>
 
-    <div id="listaHabitos"></div>
-  </section>
-
-  <section class="pagina" id="pagina-progresso" hidden>
-    <h1>Progresso</h1>
-    <div class="row g-3 mb-4">
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num" id="statSequencia">0</span>
-          <span>Dias seguidos</span>
+    <section class="pagina" id="pagina-progresso" hidden>
+      <h1>Progresso</h1>
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num" id="statSequencia">0</span>
+            <span>Dias seguidos</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num" id="statMelhor">0</span>
+            <span>Melhor sequência</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num" id="statTotal">0</span>
+            <span>Dias com registro</span>
+          </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num" id="statMelhor">0</span>
-          <span>Melhor sequência</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num" id="statTotal">0</span>
-          <span>Dias com registro</span>
-        </div>
-      </div>
-    </div>
 
-    <h2>Últimos 7 dias</h2>
-    <div id="ultimos7"></div>
-  </section>
-  
-  <section class="pagina" id="pagina-novo" hidden>
-    <h1>Novo hábito</h1>
-    <form id="formNovo" novalidate>
-      <div class="alert alert-erro mb-3" id="avisoNovo" role="alert" hidden>Preencha o nome e escolha uma categoria.</div>
-      <div class="mb-3">
-        <label for="novoNome" class="form-label">Seu novo hábito</label>
-        <input class="form-control" type="text" id="novoNome" maxlength="40" required placeholder="Ex.: Beber 2 litros de água">
-      </div>
-      <div class="mb-3">
-        <label for="novoCategoria" class="form-label">Escolha uma categoria de hábito</label>
-        <select class="form-control" id="novoCategoria" required></select>
-      </div>
-      <div class="mb-3">
-        <label for="novoMeta" class="form-label">Descreva sua meta (opcional)</label>
-        <textarea class="form-control" id="novoMeta" rows="4" maxlength="200"></textarea>
-      </div>
-      <div class="d-flex gap-2">
+      <h2>Últimos 7 dias</h2>
+      <div id="ultimos7"></div>
+    </section>
+
+    <section class="pagina" id="pagina-novo" hidden>
+      <h1>Novo hábito</h1>
+      <form id="formNovo" novalidate>
+        <div class="alert alert-erro mb-3" id="avisoNovo" role="alert" hidden>Preencha o nome e escolha uma categoria.
+        </div>
+        <div class="mb-3">
+          <label for="novoNome" class="form-label">Seu novo hábito</label>
+          <input class="form-control" type="text" id="novoNome" maxlength="40" required
+            placeholder="Ex.: Beber 2 litros de água">
+        </div>
+        <div class="mb-3">
+          <label for="novoCategoria" class="form-label">Escolha uma categoria de hábito</label>
+          <select class="form-control" id="novoCategoria" required></select>
+        </div>
+        <div class="mb-3">
+          <label for="novoMeta" class="form-label">Descreva sua meta (opcional)</label>
+          <textarea class="form-control" id="novoMeta" rows="4" maxlength="200"></textarea>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-verde">Salvar</button>
+          <button type="button" class="btn btn-cinza" id="cancelarNovo">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="pagina" id="pagina-perfil" hidden>
+      <h1>Perfil</h1>
+      <form class="mb-4" id="formPerfil" novalidate>
+        <div class="alert alert-erro mb-3" id="avisoPerfil" role="alert" hidden>A meta diária deve ser um número inteiro
+          de 1 a 20.</div>
+        <div class="mb-3">
+          <label for="perfilNome" class="form-label">Nome</label>
+          <input class="form-control" type="text" id="perfilNome" maxlength="40" placeholder="Seu nome">
+        </div>
+        <div class="mb-3">
+          <label for="perfilMeta" class="form-label">Meta diária (quantos hábitos concluir por dia)</label>
+          <input class="form-control" type="number" id="perfilMeta" min="1" max="20" step="1" placeholder="Ex.: 3">
+        </div>
         <button type="submit" class="btn btn-verde">Salvar</button>
-        <button type="button" class="btn btn-cinza" id="cancelarNovo">Cancelar</button>
-      </div>
-    </form>
-  </section>
+      </form>
 
-  <section class="pagina" id="pagina-perfil" hidden>
-    <h1>Perfil</h1>
-    <form class="mb-4" id="formPerfil" novalidate>
-      <div class="alert alert-erro mb-3" id="avisoPerfil" role="alert" hidden>A meta diária deve ser um número inteiro de 1 a 20.</div>
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num" id="totalHabitos">0</span>
+            <span>Total de hábitos</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num" id="diasRegistrados">0</span>
+            <span>Dias registrados</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-num">
+            <span class="num num-texto" id="habitoTop">—</span>
+            <span>Seu hábito mais constante</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="dialog" id="modalEditar" aria-labelledby="tituloModal">
+    <div class="dialog-header">
+      <h5 class="dialog-title" id="tituloModal">Editar hábito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Fechar"></button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="alert alert-erro mb-3" id="avisoEditar" role="alert" hidden>Preencha o nome e escolha uma categoria.
+      </div>
       <div class="mb-3">
-        <label for="perfilNome" class="form-label">Nome</label>
-        <input class="form-control" type="text" id="perfilNome" maxlength="40" placeholder="Seu nome">
+        <label for="editNome" class="form-label">Nome do hábito</label>
+        <input class="form-control" id="editNome" maxlength="40" required>
       </div>
       <div class="mb-3">
-        <label for="perfilMeta" class="form-label">Meta diária (quantos hábitos concluir por dia)</label>
-        <input class="form-control" type="number" id="perfilMeta" min="1" max="20" step="1" placeholder="Ex.: 3">
+        <label for="editCategoria" class="form-label">Categoria</label>
+        <select class="form-control" id="editCategoria" required></select>
       </div>
-      <button type="submit" class="btn btn-verde">Salvar</button>
-    </form>
-
-    <div class="row g-3 mb-4">
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num" id="totalHabitos">0</span>
-          <span>Total de hábitos</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num" id="diasRegistrados">0</span>
-          <span>Dias registrados</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-num">
-          <span class="num num-texto" id="habitoTop">—</span>
-          <span>Seu hábito mais constante</span>
-        </div>
+      <div class="mb-3">
+        <label for="editMeta" class="form-label">Meta</label>
+        <textarea class="form-control" id="editMeta" rows="4" maxlength="200"></textarea>
       </div>
     </div>
-  </section>
-</main>
 
-<dialog class="dialog" id="modalEditar" aria-labelledby="tituloModal">
-  <div class="dialog-header">
-    <h5 class="dialog-title" id="tituloModal">Editar hábito</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Fechar"></button>
-  </div>
-
-  <div class="dialog-body">
-    <div class="alert alert-erro mb-3" id="avisoEditar" role="alert" hidden>Preencha o nome e escolha uma categoria.</div>
-    <div class="mb-3">
-      <label for="editNome" class="form-label">Nome do hábito</label>
-      <input class="form-control" id="editNome" maxlength="40" required>
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-cinza" data-bs-dismiss="dialog">Cancelar</button>
+      <button type="button" class="btn btn-verde" id="salvarEdicao">Salvar alterações</button>
     </div>
-    <div class="mb-3">
-      <label for="editCategoria" class="form-label">Categoria</label>
-      <select class="form-control" id="editCategoria" required></select>
-    </div>
-    <div class="mb-3">
-      <label for="editMeta" class="form-label">Meta</label>
-      <textarea class="form-control" id="editMeta" rows="4" maxlength="200"></textarea>
-    </div>
-  </div>
-
-  <div class="dialog-footer">
-    <button type="button" class="btn btn-cinza" data-bs-dismiss="dialog">Cancelar</button>
-    <button type="button" class="btn btn-verde" id="salvarEdicao">Salvar alterações</button>
-  </div>
-</dialog>
-<script src="storage.js"></script>
-<script src="script.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+  </dialog>
+  <script src="storage.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

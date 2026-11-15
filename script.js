@@ -25,14 +25,22 @@ const novoMeta = document.getElementById('novoMeta');
 const avisoNovo = document.getElementById('avisoNovo');
 const cancelarNovo = document.getElementById('cancelarNovo');
 
+const formPerfil = document.getElementById('formPerfil');
+const perfilNome = document.getElementById('perfilNome');
+const perfilMeta = document.getElementById('perfilMeta');
+const avisoPerfil = document.getElementById('avisoPerfil');
+const totalHabitos = document.getElementById('totalHabitos');
+const totalDias = document.getElementById('diasRegistrados');
+const habitoTop = document.getElementById('habitoTop');
+
 const VAZIO = '<p>Nenhum hábito ainda. <a href="#novo">Crie o primeiro!</a></p>';
 
 const PAGINAS = {
   inicio: desenharInicio,
   habitos: desenharHabitos,
-  progresso: () => {},
+  progresso: desenharProgresso,
   novo: prepararNovo,
-  perfil: () => {}
+  perfil: desenharPerfil
 };
 
 function paginaAtual() {
@@ -92,16 +100,6 @@ function avisar(texto) {
     mensagem.hidden = true;
   }, 3000);
 }
-
-const formPerfil = document.getElementById('formPerfil');
-const perfilNome = document.getElementById('perfilNome');
-const perfilMeta = document.getElementById('perfilMeta');
-const avisoPerfil = document.getElementById('avisoPerfil');
-const totalHabitos = document.getElementById('totalHabitos');
-const totalDias = document.getElementById('diasRegistrados');
-const habitoTop = document.getElementById('habitoTop');
-
-PAGINAS.perfil = desenharPerfil;
 
 function desenharPerfil() {
   perfilNome.value = perfil.nome || '';
@@ -323,8 +321,6 @@ const statSequencia = document.getElementById('statSequencia');
 const statMelhor = document.getElementById('statMelhor');
 const statTotal = document.getElementById('statTotal');
 const ultimos7 = document.getElementById('ultimos7');
-
-PAGINAS.progresso = desenharProgresso;
 
 function desenharProgresso() {
   const dias = diasRegistrados();
