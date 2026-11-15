@@ -128,6 +128,43 @@
       </div>
     </form>
   </section>
+
+  <section class="pagina" id="pagina-perfil" hidden>
+    <h1>Perfil</h1>
+    <form class="mb-4" id="formPerfil" novalidate>
+      <div class="alert alert-erro mb-3" id="avisoPerfil" role="alert" hidden>A meta diária deve ser um número inteiro de 1 a 20.</div>
+      <div class="mb-3">
+        <label for="perfilNome" class="form-label">Nome</label>
+        <input class="form-control" type="text" id="perfilNome" maxlength="40" placeholder="Seu nome">
+      </div>
+      <div class="mb-3">
+        <label for="perfilMeta" class="form-label">Meta diária (quantos hábitos concluir por dia)</label>
+        <input class="form-control" type="number" id="perfilMeta" min="1" max="20" step="1" placeholder="Ex.: 3">
+      </div>
+      <button type="submit" class="btn btn-verde">Salvar</button>
+    </form>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num" id="totalHabitos">0</span>
+          <span>Total de hábitos</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num" id="diasRegistrados">0</span>
+          <span>Dias registrados</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num num-texto" id="habitoTop">—</span>
+          <span>Seu hábito mais constante</span>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <dialog class="dialog" id="modalEditar" aria-labelledby="tituloModal">
