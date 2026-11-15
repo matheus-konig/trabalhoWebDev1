@@ -93,3 +93,28 @@ a:hover { color: #fff; }
   border-color: var(--verde-600);
   box-shadow: 0 0 0 .25rem rgba(31, 122, 82, .25);
 }
+
+.card-num {
+  background: var(--verde-100);
+  border: 2px solid var(--verde-200);
+  border-radius: var(--raio);
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+}
+.card-num .num { display: block; font-size: 2rem; font-weight: 800; overflow-wrap: anywhere; }
+.card-num .num-texto { font-size: 1.4rem; }
+
+.dia { width: 1.6rem; height: 1.6rem; border-radius: 6px; background: var(--verde-200); border: 1px solid var(--verde-600); }
+.dia.feito { background: var(--verde-600); }
+
+.dialog {
+  background: var(--verde-50);
+  color: var(--verde-900);
+  border: 2px solid var(--verde-200);
+  border-radius: var(--raio);
+}
+.dialog .form-label { color: var(--verde-900); }
+.dialog-title { font-weight: 800; }
+
+.habito, .card-num, .dialog { color: var(--verde-900); }

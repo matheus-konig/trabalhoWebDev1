@@ -50,6 +50,61 @@
     </div>
   </section>
 
+  <section class="pagina" id="pagina-habitos" hidden>
+    <h1>Hábitos</h1>
+    <div class="row g-2 mb-3">
+      <div class="col-md-6">
+        <label for="busca" class="form-label">Buscar</label>
+        <input type="search" id="busca" class="form-control" placeholder="Nome do hábito...">
+      </div>
+      <div class="col-6 col-md-3">
+        <label for="filtroCategoria" class="form-label">Categoria</label>
+        <select id="filtroCategoria" class="form-control"></select>
+      </div>
+      <div class="col-6 col-md-3">
+        <label for="filtroStatus" class="form-label">Hoje</label>
+        <select id="filtroStatus" class="form-control">
+          <option value="">Todos</option>
+          <option value="feito">Feitos hoje</option>
+          <option value="pendente">Pendentes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <small id="contador"></small>
+      <button type="button" id="limparFiltros" class="btn btn-cinza btn-sm">Limpar filtros</button>
+    </div>
+
+    <div id="listaHabitos"></div>
+  </section>
+
+  <section class="pagina" id="pagina-progresso" hidden>
+    <h1>Progresso</h1>
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num" id="statSequencia">0</span>
+          <span>Dias seguidos</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num" id="statMelhor">0</span>
+          <span>Melhor sequência</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-num">
+          <span class="num" id="statTotal">0</span>
+          <span>Dias com registro</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Últimos 7 dias</h2>
+    <div id="ultimos7"></div>
+  </section>
   
   <section class="pagina" id="pagina-novo" hidden>
     <h1>Novo hábito</h1>
@@ -75,6 +130,33 @@
   </section>
 </main>
 
+<dialog class="dialog" id="modalEditar" aria-labelledby="tituloModal">
+  <div class="dialog-header">
+    <h5 class="dialog-title" id="tituloModal">Editar hábito</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="dialog" aria-label="Fechar"></button>
+  </div>
+
+  <div class="dialog-body">
+    <div class="alert alert-erro mb-3" id="avisoEditar" role="alert" hidden>Preencha o nome e escolha uma categoria.</div>
+    <div class="mb-3">
+      <label for="editNome" class="form-label">Nome do hábito</label>
+      <input class="form-control" id="editNome" maxlength="40" required>
+    </div>
+    <div class="mb-3">
+      <label for="editCategoria" class="form-label">Categoria</label>
+      <select class="form-control" id="editCategoria" required></select>
+    </div>
+    <div class="mb-3">
+      <label for="editMeta" class="form-label">Meta</label>
+      <textarea class="form-control" id="editMeta" rows="4" maxlength="200"></textarea>
+    </div>
+  </div>
+
+  <div class="dialog-footer">
+    <button type="button" class="btn btn-cinza" data-bs-dismiss="dialog">Cancelar</button>
+    <button type="button" class="btn btn-verde" id="salvarEdicao">Salvar alterações</button>
+  </div>
+</dialog>
 <script src="storage.js"></script>
 <script src="script.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
