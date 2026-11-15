@@ -36,6 +36,19 @@
 
 <main class="container py-4">
   <div class="alert alert-sucesso mb-3" id="mensagem" role="status" hidden></div>
+  
+  <section class="pagina" id="pagina-inicio" hidden>
+    <p id="ola" hidden></p>
+    <h1>Hoje</h1>
+    <p id="resumo"></p>
+    <div id="listaHoje"></div>
+
+    <h2>Progresso</h2>
+    <div class="progress mb-3" role="progressbar" aria-label="Hábitos concluídos hoje"
+         aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" id="barra" style="width: 0%"></div>
+    </div>
+  </section>
 </main>
 
 <script src="storage.js"></script>

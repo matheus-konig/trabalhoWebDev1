@@ -54,3 +54,34 @@ a:hover { color: #fff; }
 }
 .alert-erro { background: #fdecea; color: var(--perigo); border: 2px solid var(--perigo); }
 .alert-sucesso { background: var(--verde-100); color: var(--verde-900); border: 2px solid var(--verde-600); }
+
+.habito {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  background: var(--verde-100);
+  border: 2px solid var(--verde-200);
+  border-radius: var(--raio);
+  padding: 1rem 1.2rem;
+  margin-bottom: .8rem;
+}
+.habito label, .habito-info { flex-grow: 1; font-weight: 600; }
+.habito input[type="checkbox"] { width: 1.6rem; height: 1.6rem; flex-shrink: 0; }
+
+.habito.feito { background: var(--verde-200); border-color: var(--verde-600); }
+.habito.feito label { text-decoration: line-through; opacity: .7; }
+
+.form-check-input:checked { background-color: var(--verde-600); border-color: var(--verde-600); }
+
+.badge-cat { background: var(--verde-600); color: #fff; border-radius: var(--raio); }
+
+.progress {
+  --bs-progress-bar-bg: var(--verde-600);
+  --bs-progress-bg: var(--verde-200);
+  height: 1rem;
+  background: var(--verde-200);
+  border-radius: var(--raio);
+}
+.progress-bar { background: var(--verde-600); border-radius: var(--raio); transition: width .3s; }
+.habito p, .card-num p { color: var(--verde-900); }
