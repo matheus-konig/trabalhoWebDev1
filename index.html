@@ -49,6 +49,30 @@
       <div class="progress-bar" id="barra" style="width: 0%"></div>
     </div>
   </section>
+
+  
+  <section class="pagina" id="pagina-novo" hidden>
+    <h1>Novo hábito</h1>
+    <form id="formNovo" novalidate>
+      <div class="alert alert-erro mb-3" id="avisoNovo" role="alert" hidden>Preencha o nome e escolha uma categoria.</div>
+      <div class="mb-3">
+        <label for="novoNome" class="form-label">Seu novo hábito</label>
+        <input class="form-control" type="text" id="novoNome" maxlength="40" required placeholder="Ex.: Beber 2 litros de água">
+      </div>
+      <div class="mb-3">
+        <label for="novoCategoria" class="form-label">Escolha uma categoria de hábito</label>
+        <select class="form-control" id="novoCategoria" required></select>
+      </div>
+      <div class="mb-3">
+        <label for="novoMeta" class="form-label">Descreva sua meta (opcional)</label>
+        <textarea class="form-control" id="novoMeta" rows="4" maxlength="200"></textarea>
+      </div>
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-verde">Salvar</button>
+        <button type="button" class="btn btn-cinza" id="cancelarNovo">Cancelar</button>
+      </div>
+    </form>
+  </section>
 </main>
 
 <script src="storage.js"></script>

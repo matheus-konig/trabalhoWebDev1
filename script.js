@@ -65,3 +65,33 @@ listaHoje.addEventListener('change', e => {
   alternar(id);
   desenharInicio();
 });
+
+const formNovo = document.getElementById('formNovo');
+const novoNome = document.getElementById('novoNome');
+const novoCategoria = document.getElementById('novoCategoria');
+const novoMeta = document.getElementById('novoMeta');
+const avisoNovo = document.getElementById('avisoNovo');
+const cancelarNovo = document.getElementById('cancelarNovo');
+
+PAGINAS.novo = prepararNovo;
+
+function prepararNovo() {
+  avisoNovo.hidden = true;
+}
+
+formNovo.addEventListener('submit', e => {
+  e.preventDefault();
+  const dados = lerFormularioHabito(novoNome, novoCategoria, novoMeta, avisoNovo);
+  if (!dados) return;
+
+  habitos.push({ id: Date.now(), ...dados });
+  salvar();
+  formNovo.reset();
+  avisar('Hábito criado!');
+  location.hash = '#inicio';
+});
+
+cancelarNovo.addEventListener('click', () => {
+  formNovo.reset();
+  location.hash = '#inicio';
+});

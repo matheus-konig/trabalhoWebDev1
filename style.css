@@ -85,3 +85,11 @@ a:hover { color: #fff; }
 }
 .progress-bar { background: var(--verde-600); border-radius: var(--raio); transition: width .3s; }
 .habito p, .card-num p { color: var(--verde-900); }
+
+
+.form-label { color: var(--verde-50); font-family: var(--fonte); font-weight: 600; }
+.form-control { background-color: var(--verde-50); color: #021601; }
+.form-control:focus {
+  border-color: var(--verde-600);
+  box-shadow: 0 0 0 .25rem rgba(31, 122, 82, .25);
+}
