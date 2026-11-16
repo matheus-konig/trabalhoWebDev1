@@ -1,4 +1,3 @@
-
 const categorias = [
   { id: 1, nome: 'Saúde' },
   { id: 2, nome: 'Estudo' },
@@ -44,6 +43,11 @@ function diasAtras(n) {
   return data.toLocaleDateString('sv-SE');
 }
 
+function diaSeguinte(texto) {
+  const [ano, mes, dia] = texto.split('-').map(Number);
+  return new Date(ano, mes - 1, dia + 1).toLocaleDateString('sv-SE');
+}
+
 function formatarData(texto) {
   const [, mes, dia] = texto.split('-');
   return dia + '/' + mes;
@@ -74,6 +78,31 @@ function contarSequencia(datas) {
     n++;
   }
   return total;
+}
+
+function sequencia(h) {
+  return contarSequencia(datasDe(h));
+}
+
+function melhorSequencia(datas) {
+  const ordenadas = [...new Set(datas)].sort();
+  let melhor = 0;
+  let atual = 0;
+  let anterior = null;
+  for (const data of ordenadas) {
+    if (anterior && diaSeguinte(anterior) === data) {
+      atual++;
+    } else {
+      atual = 1;
+    }
+    if (atual > melhor) melhor = atual;
+    anterior = data;
+  }
+  return melhor;
+}
+
+function diasRegistrados() {
+  return [...new Set(registros.map(r => r.data))].sort();
 }
 
 function esc(texto) {
